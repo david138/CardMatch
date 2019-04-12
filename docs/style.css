@@ -1,0 +1,132 @@
+html, body {
+  background: #526687;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+#menu {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  padding: 1em;
+  color: white;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+#banner {
+  margin-right: auto;
+}
+
+.checks {
+  margin-right: 2em;
+}
+
+input[type=number] {
+  width: 4em;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+}
+
+input[type=submit] {
+  background-color: #0084ff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+#gameBoard {
+  height: 90%;
+  width: 90%;
+  min-height: 480px;
+  margin: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.row {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  display: flex;
+  align-self: stretch;
+  flex-wrap: nowrap;
+  padding: 0;
+  justify-content: space-evenly;
+}
+
+.card {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  margin: 10px;
+}
+
+.hidden, .selected {
+    cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  pointer-events: none;
+
+}
+
+.card-inner .front, .card-inner .back {
+  position: absolute;
+  border: 3px solid black;
+  border-radius: 3%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card .back {
+  background-color: #DFDBE5;
+  z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52' viewBox='0 0 52 52'%3E%3Cpath fill='%239C92AC' fill-opacity='0.4' d='M0 17.83V0h17.83a3 3 0 0 1-5.66 2H5.9A5 5 0 0 1 2 5.9v6.27a3 3 0 0 1-2 5.66zm0 18.34a3 3 0 0 1 2 5.66v6.27A5 5 0 0 1 5.9 52h6.27a3 3 0 0 1 5.66 0H0V36.17zM36.17 52a3 3 0 0 1 5.66 0h6.27a5 5 0 0 1 3.9-3.9v-6.27a3 3 0 0 1 0-5.66V52H36.17zM0 31.93v-9.78a5 5 0 0 1 3.8.72l4.43-4.43a3 3 0 1 1 1.42 1.41L5.2 24.28a5 5 0 0 1 0 5.52l4.44 4.43a3 3 0 1 1-1.42 1.42L3.8 31.2a5 5 0 0 1-3.8.72zm52-14.1a3 3 0 0 1 0-5.66V5.9A5 5 0 0 1 48.1 2h-6.27a3 3 0 0 1-5.66-2H52v17.83zm0 14.1a4.97 4.97 0 0 1-1.72-.72l-4.43 4.44a3 3 0 1 1-1.41-1.42l4.43-4.43a5 5 0 0 1 0-5.52l-4.43-4.43a3 3 0 1 1 1.41-1.41l4.43 4.43c.53-.35 1.12-.6 1.72-.72v9.78zM22.15 0h9.78a5 5 0 0 1-.72 3.8l4.44 4.43a3 3 0 1 1-1.42 1.42L29.8 5.2a5 5 0 0 1-5.52 0l-4.43 4.44a3 3 0 1 1-1.41-1.42l4.43-4.43a5 5 0 0 1-.72-3.8zm0 52c.13-.6.37-1.19.72-1.72l-4.43-4.43a3 3 0 1 1 1.41-1.41l4.43 4.43a5 5 0 0 1 5.52 0l4.43-4.43a3 3 0 1 1 1.42 1.41l-4.44 4.43c.36.53.6 1.12.72 1.72h-9.78zm9.75-24a5 5 0 0 1-3.9 3.9v6.27a3 3 0 1 1-2 0V31.9a5 5 0 0 1-3.9-3.9h-6.27a3 3 0 1 1 0-2h6.27a5 5 0 0 1 3.9-3.9v-6.27a3 3 0 1 1 2 0v6.27a5 5 0 0 1 3.9 3.9h6.27a3 3 0 1 1 0 2H31.9z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.card .front {
+  z-index: 1;
+  transform: rotateY(180deg);
+}
+
+.hidden:hover .card-inner .back, .selected .card-inner .back,
+ .revealed:hover .card-inner .front {
+  border: 3px solid darkred;
+}
+
+.revealed .card-inner, .found .card-inner {
+  transform: rotateY(180deg);
+}
+
+.cardVal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.cardVal p {
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-size: 50vw;
+  font-weight: bold;
+}

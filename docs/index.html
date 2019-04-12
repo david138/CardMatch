@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Card Matcher </title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="cardMatching.js"></script>
+	<script src="cardMatchLogic.js"></script>
+</head>
+<body>
+	<div id='menu'>
+		<p id="banner">Enter the number of cards to start</p>
+		<div class='checks'> 0 </div>
+		<form name='match' onsubmit="return false">
+		    Cards: <input type='number' name='numCards'>
+		           <input type='submit' value='Start' onclick="startGame()">
+		</form>
+	</div>
+</body>
+</html>
